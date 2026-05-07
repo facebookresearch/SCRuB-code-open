@@ -1,0 +1,8 @@
+pandas>=1.5
+numpy>=1.23
+scipy>=1.10
+matplotlib>=3.7
+
+# Required for ensemble/score_responses.py only:
+pyyaml>=6
+openai>=1.0

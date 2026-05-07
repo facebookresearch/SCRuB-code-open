@@ -1,0 +1,6 @@
+data/*.csv
+figures/*.pdf
+figures/*.png
+__pycache__/
+*.pyc
+.DS_Store

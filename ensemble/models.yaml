@@ -1,0 +1,62 @@
+# SCRuBEval judge model configurations
+#
+# Each entry defines a named model that can be used as a judge in the ensemble.
+# Select one with --judge <name> when running score_responses.py.
+#
+# Required fields per model:
+#   model_id    : the model identifier string passed to the API
+#   base_url    : chat completions endpoint (must accept OpenAI-compatible requests)
+#   api_key_env : name of the environment variable holding your API key
+#   token_param : "max_tokens" or "max_completion_tokens" (varies by provider)
+#
+# Any provider that exposes an OpenAI-compatible chat completions endpoint works,
+# including cloud APIs (OpenAI, Anthropic, Google, Mistral, Cohere, etc.) and
+# self-hosted models via vLLM, Ollama, llama.cpp, or LiteLLM.
+
+models:
+
+  # ── Cloud providers ──────────────────────────────────────────────────────────
+
+  gpt-4o-mini:
+    model_id:    "gpt-4o-mini"
+    base_url:    "https://api.openai.com/v1"
+    api_key_env: "OPENAI_API_KEY"
+    token_param: "max_completion_tokens"
+
+  # claude-haiku:
+  #   model_id:    "claude-haiku-4-5"
+  #   base_url:    "https://api.anthropic.com/v1"
+  #   api_key_env: "ANTHROPIC_API_KEY"
+  #   token_param: "max_tokens"
+
+  # gemini-flash:
+  #   model_id:    "gemini-2.5-flash"
+  #   base_url:    "https://generativelanguage.googleapis.com/v1beta/openai"
+  #   api_key_env: "GEMINI_API_KEY"
+  #   token_param: "max_tokens"
+
+  # mistral-small:
+  #   model_id:    "mistral-small-latest"
+  #   base_url:    "https://api.mistral.ai/v1"
+  #   api_key_env: "MISTRAL_API_KEY"
+  #   token_param: "max_tokens"
+
+  # together-llama3:
+  #   model_id:    "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+  #   base_url:    "https://api.together.xyz/v1"
+  #   api_key_env: "TOGETHER_API_KEY"
+  #   token_param: "max_tokens"
+
+  # ── Self-hosted ───────────────────────────────────────────────────────────────
+
+  # local-vllm:
+  #   model_id:    "meta-llama/Llama-3.1-8B-Instruct"
+  #   base_url:    "http://localhost:8000/v1"
+  #   api_key_env: "VLLM_API_KEY"           # set to any non-empty string for vLLM
+  #   token_param: "max_tokens"
+
+  # ollama:
+  #   model_id:    "llama3.1:8b"
+  #   base_url:    "http://localhost:11434/v1"
+  #   api_key_env: "OLLAMA_API_KEY"         # set to any non-empty string
+  #   token_param: "max_tokens"
